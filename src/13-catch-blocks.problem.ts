@@ -1,4 +1,6 @@
+import { error } from "console";
 import { expect, it } from "vitest";
+import { never } from "zod";
 
 const tryCatchDemo = (state: "fail" | "succeed") => {
   try {
@@ -6,7 +8,7 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
       throw new Error("Failure!");
     }
   } catch (e) {
-    return e.message;
+    return (e as Error).message;
   }
 };
 
